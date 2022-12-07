@@ -12,3 +12,11 @@ In the `if(__name__ == "__main__"):` clause, create an instance of your class, a
 ## Run the script
 
 Top it off with the `execute()` method, which receives the command line arguments.
+
+### Example
+
+`./courbe_convergence.py -p data.txt` to see an _almost minimal_ working example.
+
+## Installation
+
+For now you can simply clone the project and use the files locally. I have plans to package it in a proper way soon.
