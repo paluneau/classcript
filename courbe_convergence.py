@@ -27,23 +27,23 @@ class CourbeConvergence(ScriptGenerique):
 
         try:
         # Lecture des données 
-            nuage = CourbeConvergence.lis_donnees(self.req_params()["-p"].req_valeur())
+            nuage = CourbeConvergence.lis_donnees(self.req_param_val("-p"))
 
             # Création du graphique
-            plt.plot(nuage[:,0],nuage[:,1],self.req_params()["-f"].req_valeur())
-            plt.xlabel(self.req_params()["-x"].req_valeur())
-            plt.ylabel(self.req_params()["-y"].req_valeur())
-            if(self.req_params()["-lx"].req_valeur()):
+            plt.plot(nuage[:,0],nuage[:,1],self.req_param_val("-f"))
+            plt.xlabel(self.req_param_val("-x"))
+            plt.ylabel(self.req_param_val("-y"))
+            if(self.req_param_val("-lx")):
                 plt.xscale("log")
-            if(self.req_params()["-ly"].req_valeur()):
+            if(self.req_param_val("-ly")):
                 plt.yscale("log")
 
-            nom_fichier = basename(self.req_params()["-p"].req_valeur())
+            nom_fichier = basename(self.req_param_val("-p"))
             tikzplt.save("courbe_convergence_" + nom_fichier + ".tex")
 
             plt.show()
         except TypeError as e:
-            print(f"Erreur d'ouverture du fichier {self.req_params()['-p'].req_valeur()}.")
+            print(f"Erreur d'ouverture du fichier {self.req_param_val('-p')}.")
         
 
 if(__name__ == "__main__"):

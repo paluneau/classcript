@@ -18,6 +18,12 @@ class ScriptGenerique(ABC):
     def asgn_message_sans_param(self, p_message : str):
         self.__message = p_message
 
+    def req_param_val(self, p_param : str):
+        if p_param in self.__params:
+            return self.__params[p_param][0].req_valeur()
+        else: 
+            raise KeyError(f"{p_param} n'est pas un paramètre de ce script.")
+
     def req_params(self):
         return { param : self.__params[param][0] for param in self.__params }
 
